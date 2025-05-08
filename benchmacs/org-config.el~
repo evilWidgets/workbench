@@ -1,0 +1,37 @@
+;;; org-config.el --- Quiet Lighthouse Org Configuration
+
+;; Set base directory
+(setq org-directory "~/org")
+(setq default-directory org-directory)
+
+;; Ensure org-directory exists
+(unless (file-directory-p org-directory)
+  (make-directory org-directory))
+
+;; Load Org
+(require 'org)
+
+;; Agenda setup
+(setq org-agenda-files '("~/org/inbox.org"
+                         "~/org/daily.org"
+                         "~/org/projects.org"
+                         "~/org/horizon.org"))
+
+(setq org-agenda-span 'week)
+(global-set-key (kbd "C-c a") 'org-agenda)
+
+;; Visuals (optional)
+(setq org-hide-leading-stars t)
+(setq org-startup-indented t)
+
+;; Capture templates
+(setq org-capture-templates
+      '(("t" "Todo [Inbox]" entry
+         (file+headline "~/org/inbox.org" "Tasks")
+         "* TODO %?\n  %U\n  %a")
+        ("h" "Horizon Item" entry
+         (file+headline "~/org/horizon.org" "Futures Awaiting Activation")
+         "* TODO %?\n  SCHEDULED: %t\n  :PROPERTIES:\n  :CREATED:  %U\n  :END:\n")))
+
+;; Keybinding for capture
+(global-set-key (kbd "C-c c") 'org-capture)

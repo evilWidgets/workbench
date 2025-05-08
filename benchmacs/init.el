@@ -1,0 +1,3 @@
+(global-set-key (kbd "C-c c") 'org-capture)
+(add-to-list 'load-path "~/.emacs.d/c0r/")
+(require 'capture)

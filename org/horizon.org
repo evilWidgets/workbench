@@ -1,0 +1,26 @@
+#+TITLE: Horizon - The Architect’s Long View
+#+FILETAGS: :horizon:
+
+* Futures Awaiting Activation
+** TODO Research Notmuch sync APIs
+   SCHEDULED: <2025-06-01 Sun>
+   :PROPERTIES:
+   :CREATED:  [2025-05-07 Wed]
+   :END:
+
+** TODO Test automated refile script for stale tasks
+   SCHEDULED: <2025-06-10 Tue>
+   :PROPERTIES:
+   :CREATED:  [2025-05-07 Wed]
+   :END:
+
+* Projects to Review Later
+** TODO Build Guardian Protocol Layer into QXS
+   :PROPERTIES:
+   :CREATED:  [2025-05-07 Wed]
+   :END:
+
+** TODO Investigate GitHub Pages CI triggers
+   :PROPERTIES:
+   :CREATED:  [2025-05-07 Wed]
+   :END:
