@@ -1,0 +1,22 @@
+[emacs]
+	[version]
+	version = "29.3"
+	architecture = "x86_64"
+	distribution_format = "tar.gz"
+	os = "linux"
+	replace_in_path = false
+
+[chemacs]
+enabled = true
+version = "v2"
+install_path = "~/.emacs.d"
+distributions = [ "test",]
+packages = [ "use-package", "org", "magit",]
+
+[emacs.build]
+enabled = false
+options = [ "--with-modules", "--with-json", "--with-native-compilation",]
+
+[site]
+url = "http://ftp.gnu.org/gnu/emacs/emacs-29.1.tar.gz"
+root = "~/workbench/infra/emacs/versions/29.1/"

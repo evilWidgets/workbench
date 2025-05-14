@@ -1,0 +1,11 @@
+* Backlog
+** TODO Install_Emacs: Toml-based configuration (IaC) of Emacs 
+:CREATED: [2025-05-13 Tue 10:15]
+:BACKLOG: t
+
+* Tasks
+** TODO Install_Emacs: refine the toml configuration rules in install_emacs.py
+:PROPERTIES:
+:CREATED: [2025-05-13 Tue 10:17]
+:END:
+
