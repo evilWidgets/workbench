@@ -1,0 +1,132 @@
+#!/home/ben/workbench/workbench_env/bin/python
+"""
+post_sort_inbox.py:
+
+Refactored to use orgparse for parsing and manipulating Org files.
+Features:
+- Urgent items → next_actions.org
+- Project items → projects.org
+Supports flags: --urgent, --projects (default: both).
+Logs to console (Rich) and file: ~/workbench/logs/post_sort_inbox.log
+
+Ensures reserved tags (e.g., 'urgent') are detected regardless of tag order or case.
+"""
+import sys
+import logging
+import argparse
+from pathlib import Path
+from rich.console import Console
+from rich.logging import RichHandler
+from rich.traceback import install as install_rich_traceback
+from orgparse import load
+
+# Enable rich tracebacks
+install_rich_traceback()
+
+# === Logging Setup ===
+LOG_DIR = Path('~/workbench/logs').expanduser()
+LOG_DIR.mkdir(parents=True, exist_ok=True)
+LOG_FILE = LOG_DIR / f"{Path(__file__).stem}.log"
+
+console = Console(file=sys.stdout)
+logger = logging.getLogger('post_sort_inbox')
+logger.setLevel(logging.INFO)
+rich_handler = RichHandler(console=console, rich_tracebacks=True)
+file_handler = logging.FileHandler(LOG_FILE, encoding='utf-8')
+file_handler.setFormatter(logging.Formatter('%(asctime)s %(levelname)s: %(message)s'))
+logger.handlers.clear()
+logger.addHandler(rich_handler)
+logger.addHandler(file_handler)
+logger.info(f"Logging to console and file: {LOG_FILE}")
+
+# === Paths & Settings ===
+INBOX_PATH    = Path('~/workbench/org/inbox.org').expanduser()
+NEXT_ACTIONS  = Path('~/org/next_actions.org').expanduser()
+PROJECTS_PATH = Path('~/workbench/org/projects.org').expanduser()
+# RESERVED_TAGS all lowercase for case-insensitive matching
+RESERVED_TAGS = ['urgent']
+
+# === Functions using orgparse ===
+def load_inbox():
+    """Load the org file and return the 'Inbox' root node."""
+    doc = load(INBOX_PATH)
+    inbox_node = next((n for n in doc.children if n.heading == 'Inbox'), None)
+    if not inbox_node:
+        logger.error("'* Inbox' heading not found in inbox file.")
+        sys.exit(1)
+    return doc, inbox_node
+
+
+def process_entries(doc, inbox_node, do_urgent: bool, do_projects: bool) -> None:
+    """Process each TODO node under the Inbox heading."""
+    processed = []
+    for node in list(inbox_node.children):
+        if not node.todo:
+            continue
+        # Normalize tags for case-insensitive checks
+        tags = node.tags
+        tags_lower = [t.lower() for t in tags]
+        is_urgent = 'urgent' in tags_lower
+        # Project tags: all except reserved
+        project_tags = [t for t, tl in zip(tags, tags_lower) if tl not in RESERVED_TAGS]
+
+        # Urgent feature
+        if do_urgent and is_urgent:
+            if project_tags:
+                for proj in project_tags:
+                    write_subtree(NEXT_ACTIONS, proj.title(), node)
+            else:
+                    write_subtree(NEXT_ACTIONS, 'Next Actions', node)
+            processed.append(node)
+        # Projects feature
+        if do_projects and project_tags:
+            for proj in project_tags:
+                write_subtree(PROJECTS_PATH, proj.title(), node)
+            if node not in processed:
+                processed.append(node)
+
+    # Remove processed nodes from inbox
+    for node in processed:
+        logger.info(f"Removing processed entry: {node.heading}")
+        inbox_node.children.remove(node)
+    # Write updated inbox back
+    INBOX_PATH.write_text(str(doc))
+    logger.info("Updated inbox file after processing.")
+
+
+def write_subtree(file_path: Path, heading: str, node) -> None:
+    """Append the given Org subtree under a heading in the target file."""
+    file_path = file_path.expanduser()
+    if not file_path.exists():
+        file_path.write_text(f"* {heading}\n")
+    doc = load(file_path)
+    # find or create heading
+    target = next((n for n in doc.children if n.heading == heading), None)
+    if not target:
+        target = doc.insert_child(0, heading)
+        logger.info(f"Created heading '{heading}' in {file_path}")
+    # append subtree node copy
+    target.append_child(node)
+    file_path.write_text(str(doc))
+    logger.info(f"Appended entry '{node.heading}' under '{heading}' in {file_path}")
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Refile inbox by feature using orgparse")
+    parser.add_argument('--urgent', action='store_true', help="Process urgent items")
+    parser.add_argument('--projects', action='store_true', help="Process project items")
+    args = parser.parse_args()
+    do_urgent = args.urgent or not args.projects
+    do_projects = args.projects or not args.urgent
+    logger.info(f"Running with urgent={do_urgent}, projects={do_projects}")
+
+    doc, inbox = load_inbox()
+    process_entries(doc, inbox, do_urgent, do_projects)
+    logger.info("Processing complete.")
+
+if __name__ == '__main__':
+    try:
+        main()
+    except Exception:
+        logger.exception("Unexpected error during execution")
+        sys.exit(1)

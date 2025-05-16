@@ -1,0 +1,9 @@
+APScheduler==3.11.0
+markdown-it-py==3.0.0
+mdurl==0.1.2
+orgparse==0.4.20231004
+pathlib==1.0.1
+Pygments==2.19.1
+rich==14.0.0
+toml==0.10.2
+tzlocal==5.3.1

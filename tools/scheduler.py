@@ -47,9 +47,6 @@ def backup_and_push():
         logging.error("Command failed: %s", e)
     except Exception as exc:
         logging.error("Unexpected error: %s", exc)
-
-
-
         
 if __name__ == "__main__":
     scheduler = BlockingScheduler()
