@@ -1,15 +1,27 @@
 (global-set-key (kbd "C-c c") 'org-capture)
 (add-to-list 'load-path "~/.emacs.d/c0r/")
+
 (require 'capture)
+(require 'resurrection)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages nil))
+ '(package-selected-packages '(##)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+
  )
+;; === CheMacs2 bootstrap ===
+;; adjust the path if you cloned somewhere else
+(let ((chemacs-init (expand-file-name "init.el" (concat
+                   (or (getenv "XDG_CONFIG_HOME") "~/.config")
+                   "/chemacs/"))))
+  (when (file-exists-p chemacs-init)
+    (load-file chemacs-init)))
+

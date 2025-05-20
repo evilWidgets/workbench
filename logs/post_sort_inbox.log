@@ -1,126 +1,33 @@
-2025-05-16 15:35:39,961 INFO: Logging to console and file: /home/ben/workbench/logs/post_sort_inbox.log
-2025-05-16 15:35:39,963 INFO: Huzzah! Inbox is empty!
-2025-05-16 15:36:08,449 INFO: Logging to console and file: /home/ben/workbench/logs/post_sort_inbox.log
-2025-05-16 15:36:08,451 INFO: Processing inbox entries...
-2025-05-16 15:36:08,451 INFO: Inserted entry under heading 'Next Actions' in /home/ben/org/next_actions.org
-2025-05-16 15:36:08,452 INFO: Updated inbox file with remaining entries.
-2025-05-16 15:36:08,453 INFO: Refile complete.
-2025-05-16 15:37:37,629 INFO: Logging to console and file: /home/ben/workbench/logs/post_sort_inbox.log
-2025-05-16 15:37:37,631 INFO: Processing inbox entries...
-2025-05-16 15:37:37,632 INFO: Inserted entry under heading 'Next Actions' in /home/ben/org/next_actions.org
-2025-05-16 15:37:37,633 INFO: Updated inbox file with remaining entries.
-2025-05-16 15:37:37,633 INFO: Refile complete.
-2025-05-16 15:44:55,889 INFO: Logging to console and file: /home/ben/workbench/logs/post_sort_inbox.log
-2025-05-16 15:44:55,891 INFO: Processing inbox entries...
-2025-05-16 15:44:55,892 INFO: Inserted entry under heading 'Next Actions' in /home/ben/org/next_actions.org
-2025-05-16 15:44:55,893 INFO: Updated inbox file with remaining entries.
-2025-05-16 15:44:55,893 INFO: Refile complete.
-2025-05-16 15:45:41,642 INFO: Logging to console and file: /home/ben/workbench/logs/post_sort_inbox.log
-2025-05-16 15:45:41,644 INFO: Processing inbox entries...
-2025-05-16 15:45:41,645 INFO: Inserted entry under heading 'Next Actions' in /home/ben/org/next_actions.org
-2025-05-16 15:45:41,645 INFO: Updated inbox file with remaining entries.
-2025-05-16 15:45:41,647 INFO: Refile complete.
-2025-05-16 15:46:09,882 INFO: Logging to console and file: /home/ben/workbench/logs/post_sort_inbox.log
-2025-05-16 15:46:09,884 INFO: Huzzah! Inbox is empty!
-2025-05-16 15:46:45,520 INFO: Logging to console and file: /home/ben/workbench/logs/post_sort_inbox.log
-2025-05-16 15:46:45,522 INFO: Processing inbox entries...
-2025-05-16 15:46:45,522 INFO: Inserted entry under heading 'Next Actions' in /home/ben/org/next_actions.org
-2025-05-16 15:46:45,523 INFO: Created heading 'Workbench' in /home/ben/workbench/org/projects.org
-2025-05-16 15:46:45,524 INFO: Inserted entry under heading 'Workbench' in /home/ben/workbench/org/projects.org
-2025-05-16 15:46:45,524 INFO: Updated inbox file with remaining entries.
-2025-05-16 15:46:45,525 INFO: Refile complete.
-2025-05-16 15:47:08,853 INFO: Logging to console and file: /home/ben/workbench/logs/post_sort_inbox.log
-2025-05-16 15:47:08,855 INFO: Processing inbox entries...
-2025-05-16 15:47:08,855 INFO: Inserted entry under heading 'Next Actions' in /home/ben/org/next_actions.org
-2025-05-16 15:47:08,856 INFO: Inserted entry under heading 'Workbench' in /home/ben/workbench/org/projects.org
-2025-05-16 15:47:08,857 INFO: Inserted entry under heading 'Workbench' in /home/ben/workbench/org/projects.org
-2025-05-16 15:47:08,858 INFO: Updated inbox file with remaining entries.
-2025-05-16 15:47:08,858 INFO: Refile complete.
-2025-05-16 15:57:38,228 INFO: Logging to console and file: /home/ben/workbench/logs/post_sort_inbox.log
-2025-05-16 15:57:38,230 INFO: Running with urgent=True, projects=True
-2025-05-16 15:57:38,231 ERROR: Unexpected error during execution
-Traceback (most recent call last):
-  File "/home/ben/workbench/tools/post_sort_inbox.py", line 129, in <module>
-    main()
-  File "/home/ben/workbench/tools/post_sort_inbox.py", line 124, in main
-    process_entries(doc, inbox, do_urgent, do_projects)
-  File "/home/ben/workbench/tools/post_sort_inbox.py", line 77, in process_entries
-    write_subtree(NEXT_ACTIONS, proj.title(), node)
-  File "/home/ben/workbench/tools/post_sort_inbox.py", line 106, in write_subtree
-    target = doc.insert_child(0, heading)
-             ^^^^^^^^^^^^^^^^
-AttributeError: 'OrgRootNode' object has no attribute 'insert_child'
-2025-05-16 15:59:09,147 INFO: Logging to console and file: /home/ben/workbench/logs/post_sort_inbox.log
-2025-05-16 15:59:09,149 INFO: Running with urgent=True, projects=True
-2025-05-16 15:59:09,150 ERROR: Unexpected error during execution
-Traceback (most recent call last):
-  File "/home/ben/workbench/tools/post_sort_inbox.py", line 130, in <module>
-    main()
-  File "/home/ben/workbench/tools/post_sort_inbox.py", line 125, in main
-    process_entries(doc, inbox, do_urgent, do_projects)
-  File "/home/ben/workbench/tools/post_sort_inbox.py", line 78, in process_entries
-    write_subtree(NEXT_ACTIONS, proj.title(), node)
-  File "/home/ben/workbench/tools/post_sort_inbox.py", line 107, in write_subtree
-    target = doc.append_child(heading)
-             ^^^^^^^^^^^^^^^^
-AttributeError: 'OrgRootNode' object has no attribute 'append_child'
-2025-05-16 15:59:52,908 INFO: Logging to console and file: /home/ben/workbench/logs/post_sort_inbox.log
-2025-05-16 15:59:52,910 INFO: Running with urgent=True, projects=True
-2025-05-16 15:59:52,911 ERROR: Unexpected error during execution
-Traceback (most recent call last):
-  File "/home/ben/workbench/tools/post_sort_inbox.py", line 130, in <module>
-    main()
-  File "/home/ben/workbench/tools/post_sort_inbox.py", line 125, in main
-    process_entries(doc, inbox, do_urgent, do_projects)
-  File "/home/ben/workbench/tools/post_sort_inbox.py", line 78, in process_entries
-    write_subtree(NEXT_ACTIONS, proj.title(), node)
-  File "/home/ben/workbench/tools/post_sort_inbox.py", line 107, in write_subtree
-    target = doc.append_child(heading)
-             ^^^^^^^^^^^^^^^^
-AttributeError: 'OrgRootNode' object has no attribute 'append_child'
-2025-05-16 16:01:55,589 INFO: Logging to console and file: /home/ben/workbench/logs/post_sort_inbox.log
-2025-05-16 16:01:55,592 INFO: Running with urgent=True, projects=True
-2025-05-16 16:01:55,593 INFO: Created heading 'Workbench' in /home/ben/org/next_actions.org
-2025-05-16 16:01:55,594 ERROR: Unexpected error during execution
-Traceback (most recent call last):
-  File "/home/ben/workbench/tools/post_sort_inbox.py", line 137, in <module>
-    main()
-  File "/home/ben/workbench/tools/post_sort_inbox.py", line 132, in main
-    process_entries(doc, inbox, do_urgent, do_projects)
-  File "/home/ben/workbench/tools/post_sort_inbox.py", line 78, in process_entries
-    write_subtree(NEXT_ACTIONS, proj.title(), node)
-  File "/home/ben/workbench/tools/post_sort_inbox.py", line 117, in write_subtree
-    target.append_child(node)
-    ^^^^^^^^^^^^^^^^^^^
-AttributeError: 'OrgNode' object has no attribute 'append_child'
-2025-05-16 16:04:24,899 INFO: Logging to console and file: /home/ben/workbench/logs/post_sort_inbox.log
-2025-05-16 16:04:24,901 INFO: Running urgent=True, projects=True
-2025-05-16 16:04:24,902 INFO: Inserted entry under 'Workbench' in /home/ben/org/next_actions.org
-2025-05-16 16:04:24,902 INFO: Inserted entry under 'Workbench' in /home/ben/workbench/org/projects.org
-2025-05-16 16:04:24,903 INFO: Removing processed entry: A test of tag ordering.
-2025-05-16 16:04:24,903 INFO: Inbox updated.
-2025-05-16 16:04:24,904 INFO: Done.
-2025-05-16 16:06:07,676 INFO: Logging to console and file: /home/ben/workbench/logs/post_sort_inbox.log
-2025-05-16 16:06:07,678 INFO: Running urgent=True, projects=True
-2025-05-16 16:06:07,679 INFO: Inserted entry under 'Workbench' in /home/ben/org/next_actions.org
-2025-05-16 16:06:07,680 INFO: Inserted entry under 'Workbench' in /home/ben/workbench/org/projects.org
-2025-05-16 16:06:07,680 INFO: Removing processed entry: TEST
-2025-05-16 16:06:07,681 INFO: Inbox updated.
-2025-05-16 16:06:07,681 INFO: Done.
-2025-05-16 16:11:35,002 INFO: Logging to console and file: /home/ben/workbench/logs/post_sort_inbox.log
-2025-05-16 16:11:35,004 INFO: Running urgent=True, projects=True
-2025-05-16 16:11:35,005 INFO: Inserted entry under 'Workbench' in /home/ben/org/next_actions.org
-2025-05-16 16:11:35,006 INFO: Inserted entry under 'Workbench' in /home/ben/workbench/org/projects.org
-2025-05-16 16:11:35,007 INFO: Removing processed entry: THIS IS THE FINAL TEST (HOPEFULLY)
-2025-05-16 16:11:35,007 INFO: Inbox updated.
-2025-05-16 16:11:35,008 INFO: Done.
-2025-05-16 16:14:13,895 INFO: Logging to console and file: /home/ben/workbench/logs/post_sort_inbox.log
-2025-05-16 16:14:13,897 INFO: Running urgent=True, projects=True
-2025-05-16 16:14:13,898 INFO: Inserted entry under 'Workbench' in /home/ben/org/next_actions.org
-2025-05-16 16:14:13,898 INFO: Inserted entry under 'Workbench' in /home/ben/workbench/org/projects.org
-2025-05-16 16:14:13,899 INFO: Inserted entry under 'Workbench' in /home/ben/org/next_actions.org
-2025-05-16 16:14:13,900 INFO: Inserted entry under 'Workbench' in /home/ben/workbench/org/projects.org
-2025-05-16 16:14:13,900 INFO: Removing processed entry: THIS IS THE FINAL TEST (HOPEFULLY)
-2025-05-16 16:14:13,901 INFO: Removing processed entry: OMFG IM SO TIRED OF TESTING!!
-2025-05-16 16:14:13,901 INFO: Inbox updated.
-2025-05-16 16:14:13,902 INFO: Done.
+2025-05-18 13:32:35,806 INFO: Logging to console and file: /home/ben/workbench/logs/post_sort_inbox.log
+2025-05-18 13:32:35,808 INFO: Running urgent=True, projects=True
+2025-05-18 13:32:35,809 ERROR: '* Inbox' heading not found.
+2025-05-18 17:08:08,619 INFO: Logging to console and file: /home/ben/workbench/logs/post_sort_inbox.log
+2025-05-18 17:08:08,621 INFO: Running urgent=True, projects=True
+2025-05-18 17:08:08,622 INFO: Inbox updated.
+2025-05-18 17:08:08,622 INFO: Done.
+2025-05-18 17:11:27,607 INFO: Logging to console and file: /home/ben/workbench/logs/post_sort_inbox.log
+2025-05-18 17:11:27,609 INFO: Running urgent=True, projects=True
+2025-05-18 17:11:27,610 INFO: Inbox updated.
+2025-05-18 17:11:27,611 INFO: Done.
+2025-05-18 17:11:45,003 INFO: Logging to console and file: /home/ben/workbench/logs/post_sort_inbox.log
+2025-05-18 17:11:45,005 INFO: Running urgent=True, projects=True
+2025-05-18 17:11:45,006 INFO: Created heading 'Next Actions' in /home/ben/org/next_actions.org
+2025-05-18 17:11:45,006 INFO: Inserted entry under 'Next Actions' in /home/ben/org/next_actions.org
+2025-05-18 17:11:45,007 INFO: Removing processed entry: This is another URGENT test!!
+2025-05-18 17:11:45,008 INFO: Inbox updated.
+2025-05-18 17:11:45,008 INFO: Done.
+2025-05-18 17:12:22,417 INFO: Logging to console and file: /home/ben/workbench/logs/post_sort_inbox.log
+2025-05-18 17:12:22,419 INFO: Running urgent=True, projects=True
+2025-05-18 17:12:22,420 INFO: Inserted entry under 'Next Actions' in /home/ben/org/next_actions.org
+2025-05-18 17:12:22,421 INFO: Created heading 'Testproject' in /home/ben/org/next_actions.org
+2025-05-18 17:12:22,421 INFO: Inserted entry under 'Testproject' in /home/ben/org/next_actions.org
+2025-05-18 17:12:22,422 INFO: Created heading 'Testproject' in /home/ben/workbench/org/projects.org
+2025-05-18 17:12:22,423 INFO: Inserted entry under 'Testproject' in /home/ben/workbench/org/projects.org
+2025-05-18 17:12:22,424 INFO: Removing processed entry: This is another URGENT test!!
+2025-05-18 17:12:22,424 INFO: Removing processed entry: This is another REALLY urgent test, connected to a project.
+2025-05-18 17:12:22,425 INFO: Inbox updated.
+2025-05-18 17:12:22,425 INFO: Done.
+2025-05-20 09:54:06,739 INFO: Logging to console and file: /home/ben/workbench/logs/post_sort_inbox.log
+2025-05-20 09:54:06,741 INFO: Running urgent=False, projects=True
+2025-05-20 09:54:06,742 INFO: Inbox updated.
+2025-05-20 09:54:06,742 INFO: Done.

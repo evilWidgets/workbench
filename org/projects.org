@@ -1,22 +1,9 @@
 * Workbench
-** TODO OMFG IM SO TIRED OF TESTING!!                      :urgent:workbench:
+** PROJECT Sheba
 :PROPERTIES:
-:AUTHOR: 
-:ORIGIN: 
-:CREATED: [2025-05-16 Fri 16:12]
-:TAGS: 
+:CREATED:   [2025-05-20 Tue 09:41]
+:ID:        2a52570e-327c-4eae-bd7b-7aea2440bf59
+:Number_of_Tasks: 3
+:Effort_Estimate: auto
 :END:
-** TODO THIS IS THE FINAL TEST (HOPEFULLY)                 :urgent:workbench:
-:PROPERTIES:
-:AUTHOR: 
-:ORIGIN: 
-:CREATED: [2025-05-16 Fri 16:09]
-:TAGS: 
-:END:
-** TODO THIS IS THE FINAL TEST (HOPEFULLY)                 :urgent:workbench:
-:PROPERTIES:
-:AUTHOR: 
-:ORIGIN: 
-:CREATED: [2025-05-16 Fri 16:09]
-:TAGS: 
-:END:
+
