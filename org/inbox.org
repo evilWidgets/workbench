@@ -1,6 +1,14 @@
-* Inbox
-** TODO Get Sheba groomed
+* TODO [#A] this is a test item :urgent:project:
 :PROPERTIES:
-:CREATED:   [2025-05-20 Tue 09:54]
+:CREATED: <2025-05-24 Sat>
+:PRIORITY: CRITICAL
+:END:
+
+* TODO [#B] This is another test item :urgent:project:
+:PROPERTIES:
+:CREATED: <2025-05-24 Sat>
+:PRIORITY: CRITICAL
+:SCHEDULED: <2025-05-24 Sat>
+:DEADLINE: <2025-05-24 Sat>
 :END:
 
